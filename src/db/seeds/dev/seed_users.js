@@ -1,4 +1,6 @@
-import { internet, name } from "faker";
+// import { internet, name } from "faker";
+
+const { internet, name } = require("faker");
 
 // I only want migrations, rollbacks, and seeds to run when the NODE_ENV is specified
 // in the knex seed/migrate command. Knex will error out if it is not specified.
@@ -13,7 +15,7 @@ if (process.env.NODE_ENV === "production") {
 
 const bcrypt = require("bcrypt");
 
-export const seed = async (knex) => {
+module.exports.seed = async (knex) => {
   // Make 10 users using faker. Note: we're also bcrypting
   // the passwords to make it exactly like the real app. All their
   // passwords will be 'secret'

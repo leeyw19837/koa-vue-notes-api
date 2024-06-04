@@ -34,7 +34,7 @@ export const app = new Koa();
 // );
 
 // Let's log each successful interaction. We'll also log each error - but not here,
-// that's be done in the json error-handling middleware
+// that's being done in the json error-handling middleware
 app.use(async (ctx, next) => {
   try {
     await next();

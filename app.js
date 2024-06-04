@@ -5,6 +5,9 @@ const env = process.env.NODE_ENV || "development";
 const port = process.env.PORT || 4000;
 const src = env === "production" ? "./build/index" : "./src/index";
 
+// eslint-disable-next-line no-console
+console.info("app:::", process.env);
+
 if (env === "development") {
   // eslint-disable-next-line global-require
   require("@babel/register");

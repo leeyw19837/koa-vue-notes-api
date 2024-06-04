@@ -4,7 +4,7 @@ if (!process.env.NODE_ENV) {
   throw new Error("NODE_ENV not set");
 }
 
-export const up = (knex) => {
+module.exports.up = (knex) => {
   return knex.schema.createTable("users", (table) => {
     table.charset("utf8mb4");
     table.collate("utf8mb4_unicode_ci");
@@ -34,7 +34,7 @@ export const up = (knex) => {
   });
 };
 
-export const down = (knex) => {
+module.exports.down = (knex) => {
   // We never want to drop tables in production
   if (process.env.NODE_ENV !== "production") {
     return knex.schema.dropTableIfExists("users");

@@ -26,7 +26,7 @@ router.get(`${baseUrl}/datetime`, (ctx) => {
 
 router.get(`${baseUrl}/health`, (ctx) => {
   ctx.body = {
-    data: { version: process.env.IMAGE_TAG },
+    data: { version: process.env.IMAGE_TAG || "0.0.1" },
   };
 });
 
@@ -49,3 +49,14 @@ router.get(`${baseUrl}/healthd`, async (ctx) => {
 router.get(`${baseUrl}/panic`, () => {
   throw new Error("panic");
 });
+
+router.get(
+  "/testurl",
+  (ctx, next) => {
+    ctx.user = "this is user test";
+    return next();
+  },
+  (ctx) => {
+    console.log("nested router", ctx.user);
+  },
+);

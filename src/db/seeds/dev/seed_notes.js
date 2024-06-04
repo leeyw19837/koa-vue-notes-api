@@ -1,5 +1,6 @@
-import { random, lorem } from "faker";
+// import { random, lorem } from "faker";
 
+const { random, lorem } = require("faker");
 // I only want migrations, rollbacks, and seeds to run when the NODE_ENV is specified
 // in the knex seed/migrate command. Knex will error out if it is not specified.
 if (!process.env.NODE_ENV) {
@@ -11,7 +12,7 @@ if (process.env.NODE_ENV === "production") {
   throw new Error("Can't run seeds in production");
 }
 
-export const seed = async (knex) => {
+module.exports.seed = async (knex) => {
   // Make 100 notes for 10 different users
   const seedData = [];
   for (let i = 0; i < 100; i += 1) {
