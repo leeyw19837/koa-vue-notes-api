@@ -5,3 +5,5 @@ build
 .idea
 .gitignore
 /yarn.lock
+
+dist
