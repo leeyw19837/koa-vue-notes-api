@@ -52,11 +52,11 @@ router.get(`${baseUrl}/panic`, () => {
 
 router.get(
   "/testurl",
-  (ctx, next) => {
+  (ctx:any, next) => {
     ctx.user = "this is user test";
     return next();
   },
-  (ctx) => {
+  (ctx:any) => {
     console.log("nested router", ctx.user);
   },
 );

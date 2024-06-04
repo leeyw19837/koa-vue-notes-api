@@ -1,3 +1,7 @@
+/**
+ * Deprecated File Entrance
+ */
+
 require("dotenv").config();
 require("@babel/polyfill");
 

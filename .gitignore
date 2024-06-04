@@ -7,3 +7,4 @@ build
 /yarn.lock
 
 dist
+/yarn-error.log
